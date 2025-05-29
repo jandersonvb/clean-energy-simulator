@@ -76,7 +76,7 @@ export default function SimulationPage() {
       setResult({ years: yearsArr, saved, original });
       reset();
       toast.success("Lead salvo com sucesso!");
-    } catch (err: any) {
+    } catch (err: unknown) {
       setApiError(err.message);
       setResult(null);
       toast.error(`Erro ao salvar lead: ${err.message}`);
