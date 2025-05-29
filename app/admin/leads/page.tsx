@@ -38,7 +38,7 @@ export default function AdminLeadsPage() {
       const res = await fetch("/api/leads");
       const data = await res.json();
       setLeads(data);
-    } catch () {
+    } catch (error) {
       toast.error("Erro ao buscar leads.");
     }
     setLoading(false);

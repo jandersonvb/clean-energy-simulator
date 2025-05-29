@@ -61,7 +61,7 @@ export async function DELETE(request: NextRequest) {
   try {
     await prisma.lead.delete({ where: { id } });
     return NextResponse.json({ ok: true });
-  } catch () {
+  } catch (error) {
     return NextResponse.json({ error: "Lead not found" }, { status: 404 });
   }
 }

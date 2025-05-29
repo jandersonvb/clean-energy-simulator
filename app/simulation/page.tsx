@@ -77,9 +77,9 @@ export default function SimulationPage() {
       reset();
       toast.success("Lead salvo com sucesso!");
     } catch (err: unknown) {
-      setApiError(err.message);
+      setApiError((err as Error).message);
       setResult(null);
-      toast.error(`Erro ao salvar lead: ${err.message}`);
+      toast.error(`Erro ao salvar lead: ${(err instanceof Error ? err.message : "Erro desconhecido")}`);
     }
     setLoading(false);
   };
