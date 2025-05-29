@@ -71,9 +71,9 @@ export default function AdminLeadsPage() {
       <Card className="w-full max-w-4xl shadow-2xl rounded-2xl border-0">
         <CardHeader className="flex flex-row items-center justify-between">
           <CardTitle>Leads Capturados</CardTitle>
-          <Button onClick={exportLeads} variant="outline" className="flex items-center gap-2">
+          {/* <Button onClick={exportLeads} variant="outline" className="flex items-center gap-2">
             <Download className="w-4 h-4" /> Exportar CSV
-          </Button>
+          </Button> */}
           <Button onClick={handleLogout} variant="destructive" className="flex items-center gap-2">
             <LogOut className="w-4 h-4" /> Sair
           </Button>
