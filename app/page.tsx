@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="landing-page">
-      <header className="bg-gray-800 text-white py-2 flex flex-col items-center">
+      <header className="bg-green-600 text-white py-2 flex flex-col items-center">
         <Image
           src="/logo.png"
           alt="Simulador de Energia Limpa Logo"
@@ -23,30 +23,96 @@ export default function Home() {
         </p>
       </header>
       <main className="main-content container mx-auto px-4 py-4 min-h-screen flex flex-col justify-center">
-        <section className="about mb-12">
-          <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-800">
-            Sobre Nós
-          </h2>
-          <p className="leading-7 mt-4 text-gray-600">
-            No Simulador de Energia Limpa, fornecemos ferramentas de ponta para ajudar
-            indivíduos e organizações a explorar opções de energia sustentável.
-          </p>
+        <section className="about mb-8 flex justify-center">
+
+          <div className="w-full max-w-md">
+            <div className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-800 text-center">
+              Sobre Nós
+            </div>
+            <div className="mt-4 p-6 bg-white shadow rounded-lg text-gray-600 text-center">
+              No Simulador de Energia Limpa, fornecemos ferramentas de ponta para ajudar
+              indivíduos e organizações a explorar opções de energia sustentável.
+            </div>
+          </div>
         </section>
-        <section className="features mb-12">
+        <section className="features mb-12 text-center">
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-800">
             Funcionalidades
           </h2>
-          <ul className="mt-4 space-y-2 text-gray-600">
-            <li className="flex items-center">
-              <span className="mr-2">✔</span> Simule consumo e economia de energia
-            </li>
-            <li className="flex items-center">
-              <span className="mr-2">✔</span> Explore fontes de energia renovável
-            </li>
-            <li className="flex items-center">
-              <span className="mr-2">✔</span> Otimize a eficiência energética
-            </li>
-          </ul>
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="card bg-white shadow rounded-lg p-6">
+              <div className="icon mb-4 text-green-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-8 h-8 mx-auto"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                Simule consumo e economia de energia
+              </h3>
+              <p className="text-gray-600">
+                Utilize nossas ferramentas para calcular o consumo e identificar oportunidades de economia.
+              </p>
+            </div>
+            <div className="card bg-white shadow rounded-lg p-6">
+              <div className="icon mb-4 text-green-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-8 h-8 mx-auto"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0112 2zm0 4a6 6 0 100 12 6 6 0 000-12zm0 2a4 4 0 110 8 4 4 0 010-8z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                Explore fontes de energia renovável
+              </h3>
+              <p className="text-gray-600">
+                Descubra opções de energia limpa e sustentável para sua casa ou empresa.
+              </p>
+            </div>
+            <div className="card bg-white shadow rounded-lg p-6">
+              <div className="icon mb-4 text-green-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-8 h-8 mx-auto"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 3v3m0 12v3m9-9h-3m-12 0H3m15.364 6.364l-2.121-2.121m-8.486 0l-2.121 2.121m12.728-12.728l-2.121 2.121m-8.486 0L6.636 6.636"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                Otimize a eficiência energética
+              </h3>
+              <p className="text-gray-600">
+                Aprenda como melhorar a eficiência energética e reduzir custos.
+              </p>
+            </div>
+          </div>
         </section>
         <section className="cta text-center">
           <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-800">
@@ -63,9 +129,13 @@ export default function Home() {
           </Link>
         </section>
       </main>
-      <footer className="bg-gray-800 text-white py-6">
+      <footer className="bg-green-600 text-white py-6">
         <div className="container mx-auto px-4 text-center">
           <p>&copy; 2023 Simulador de Energia Limpa. Todos os direitos reservados.</p>
+          <Link href="/admin/login" className="text-xs text-white hover:text-green-200 mt-2 inline-block">
+            Área Administrativa
+          </Link>
+
         </div>
       </footer>
     </div >

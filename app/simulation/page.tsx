@@ -156,7 +156,11 @@ export default function SimulationPage() {
                 {formState.errors.bill?.message}
               </span>
             </div>
-            <Button type="submit" className="w-full mt-4" disabled={loading}>
+            <Button
+              type="submit"
+              className="w-full mt-4 bg-green-600 text-white hover:bg-green-700"
+              disabled={loading}
+            >
               {loading ? "Calculando..." : "Simular e Economizar"}
             </Button>
           </form>
@@ -173,7 +177,7 @@ export default function SimulationPage() {
                 Ver Economia Estimada
               </Button>
               {success && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <div className="fixed inset-0 flex items-center justify-center bg-gray-200 bg-opacity-50">
                   <div className="bg-white rounded-lg p-6 shadow-lg max-w-md w-full">
                     <h2 className="font-semibold mb-2 text-lg text-center">Economia Estimada</h2>
                     <ul className="space-y-1 text-center">
@@ -184,7 +188,7 @@ export default function SimulationPage() {
                       ))}
                     </ul>
                     <p className="mt-2 text-center">Nossa equipe entrará em contato com você em breve com sua proposta!</p>
-                    <Button onClick={() => setSuccess(false)} className="w-full mt-4">
+                    <Button onClick={() => setSuccess(false)} className="w-full mt-4  bg-green-600 text-white hover:bg-green-700">
                       Fechar
                     </Button>
                   </div>

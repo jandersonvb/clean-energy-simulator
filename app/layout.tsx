@@ -12,7 +12,23 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Desafio Scoder "
+  title: "Clean Energy Simulator | Simulador de Energia Limpa",
+  description: "Simulador de Energia Limpa - Capacitando soluções de energia sustentável para um futuro melhor.",
+  keywords: [
+    "energia limpa",
+    "simulador de energia",
+    "energia renovável",
+    "eficiência energética",
+    "sustentabilidade",
+    "energia solar",
+    "energia eólica",
+    "simulação de energia",
+    "economia de energia",
+    "redução de custos",
+    "energia sustentável",
+    "futuro verde",
+    "tecnologia limpa",
+  ],
 };
 
 export default function RootLayout({
