@@ -1,6 +1,8 @@
 "use client";
 export const dynamic = "force-dynamic";
 
+import { Suspense } from "react";
+
 
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -57,36 +59,42 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
-      <Card className="w-full max-w-md shadow-2xl rounded-2xl border-0">
-        <CardHeader className="flex flex-col items-center">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={144}
-            height={144}
-            className="mb-4 cursor-pointer"
-            onClick={() => router.push("/")}
-            priority
-          />
-          <CardTitle className="text-center text-2xl font-bold">Admin Login</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div>
-              <Label htmlFor="email" className="mb-2">E-mail</Label>
-              <Input {...register("email")} id="email" placeholder="admin@clean.com" />
-              <span className="text-xs text-red-500">{formState.errors.email?.message}</span>
-            </div>
-            <div>
-              <Label htmlFor="password" className="mb-2">Senha</Label>
-              <Input {...register("password")} id="password" type="password" placeholder="Sua senha" />
-              <span className="text-xs text-red-500">{formState.errors.password?.message}</span>
-            </div>
-            <Button type="submit" className="w-full mt-4  bg-green-600 text-white hover:bg-green-700">Entrar</Button>
-          </form>
-        </CardContent>
-      </Card>
-    </div >
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+        <div className="text-lg font-semibold">Carregando...</div>
+      </div>
+    }>
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+        <Card className="w-full max-w-md shadow-2xl rounded-2xl border-0">
+          <CardHeader className="flex flex-col items-center">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={144}
+              height={144}
+              className="mb-4 cursor-pointer"
+              onClick={() => router.push("/")}
+              priority
+            />
+            <CardTitle className="text-center text-2xl font-bold">Admin Login</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <div>
+                <Label htmlFor="email" className="mb-2">E-mail</Label>
+                <Input {...register("email")} id="email" placeholder="admin@clean.com" />
+                <span className="text-xs text-red-500">{formState.errors.email?.message}</span>
+              </div>
+              <div>
+                <Label htmlFor="password" className="mb-2">Senha</Label>
+                <Input {...register("password")} id="password" type="password" placeholder="Sua senha" />
+                <span className="text-xs text-red-500">{formState.errors.password?.message}</span>
+              </div>
+              <Button type="submit" className="w-full mt-4  bg-green-600 text-white hover:bg-green-700">Entrar</Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div >
+    </Suspense>
   );
 }
