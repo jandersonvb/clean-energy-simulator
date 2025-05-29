@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { Trash2, Download, LogOut } from "lucide-react";
+import { Trash2,  LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 type Lead = {
