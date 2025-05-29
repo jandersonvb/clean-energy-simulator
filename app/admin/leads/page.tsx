@@ -35,7 +35,7 @@ export default function AdminLeadsPage() {
   const fetchLeads = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/leads");
+      const res = await fetch("/api/leads/export");
       const data = await res.json();
       setLeads(data);
     } catch (error) {
