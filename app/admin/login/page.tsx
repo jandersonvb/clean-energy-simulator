@@ -1,9 +1,10 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import Image from "next/image";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,6 +18,20 @@ const formSchema = z.object({
 type FormType = z.infer<typeof formSchema>;
 
 export default function AdminLoginPage() {
+  const searchParams = useSearchParams();
+  const [toastShown, setToastShown] = useState(false);
+
+  useEffect(() => {
+    // Para garantir que o toast aparece só uma vez mesmo com re-render.
+    if (
+      !toastShown &&
+      searchParams.get("error") === "restricted"
+    ) {
+      toast.error("Acesso restrito: faça login para continuar.");
+      setToastShown(true);
+    }
+  }, [searchParams, toastShown]);
+
   const router = useRouter();
   const { register, handleSubmit, formState } = useForm<FormType>({
     resolver: zodResolver(formSchema),
@@ -39,11 +54,17 @@ export default function AdminLoginPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       <Card className="w-full max-w-md shadow-2xl rounded-2xl border-0">
-        <CardHeader>
-          <div className="flex flex-col items-center">
-            <img src="/logo.png" alt="Logo" className="w-36 h-36 mb-4" />
-            <CardTitle className="text-center text-2xl font-bold">Admin Login</CardTitle>
-          </div>
+        <CardHeader className="flex flex-col items-center">
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={144}
+            height={144}
+            className="mb-4 cursor-pointer"
+            onClick={() => router.push("/")}
+            priority
+          />
+          <CardTitle className="text-center text-2xl font-bold">Admin Login</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -61,6 +82,6 @@ export default function AdminLoginPage() {
           </form>
         </CardContent>
       </Card>
-    </div>
+    </div >
   );
 }

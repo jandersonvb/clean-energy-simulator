@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { Trash2, Download } from "lucide-react";
+import { Trash2, Download, LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type Lead = {
   id: number;
@@ -22,6 +23,13 @@ type Lead = {
 export default function AdminLeadsPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await fetch("/api/admin/logout", { method: "POST" });
+    router.push("/admin/login");
+  };
+
 
   // Buscar leads na API
   const fetchLeads = async () => {
@@ -65,6 +73,9 @@ export default function AdminLeadsPage() {
           <CardTitle>Leads Capturados</CardTitle>
           <Button onClick={exportLeads} variant="outline" className="flex items-center gap-2">
             <Download className="w-4 h-4" /> Exportar CSV
+          </Button>
+          <Button onClick={handleLogout} variant="destructive" className="flex items-center gap-2">
+            <LogOut className="w-4 h-4" /> Sair
           </Button>
         </CardHeader>
         <CardContent>

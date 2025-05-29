@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
   ) {
     // Simples: define um cookie de sessão (exemplo, pode aprimorar depois)
     const response = NextResponse.json({ ok: true });
-    response.cookies.set("admin_auth", "true", { httpOnly: true, path: "/" });
+    response.cookies.set("admin_auth", "true", { httpOnly: true, path: "/", maxAge: 60 * 60 * 2 }); // 2 horas
     return response;
   }
 

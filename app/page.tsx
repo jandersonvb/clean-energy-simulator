@@ -23,8 +23,7 @@ export default function Home() {
         </p>
       </header>
       <main className="main-content container mx-auto px-4 py-4 min-h-screen flex flex-col justify-center">
-        <section className="about mb-8 flex justify-center">
-
+        <section className="about mb-8 flex justify-center hover:scale-105 transition-transform duration-300">
           <div className="w-full max-w-md">
             <div className="scroll-m-20 text-2xl font-semibold tracking-tight text-gray-800 text-center">
               Sobre Nós
@@ -40,7 +39,7 @@ export default function Home() {
             Funcionalidades
           </h2>
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="card bg-white shadow rounded-lg p-6">
+            <div className="card bg-white shadow rounded-lg p-6 hover:scale-105 transition-transform duration-300">
               <div className="icon mb-4 text-green-600">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +63,7 @@ export default function Home() {
                 Utilize nossas ferramentas para calcular o consumo e identificar oportunidades de economia.
               </p>
             </div>
-            <div className="card bg-white shadow rounded-lg p-6">
+            <div className="card bg-white shadow rounded-lg p-6 hover:scale-105 transition-transform duration-300">
               <div className="icon mb-4 text-green-600">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -82,13 +81,13 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                Explore fontes de energia renovável
+                Explore fontes de
               </h3>
               <p className="text-gray-600">
                 Descubra opções de energia limpa e sustentável para sua casa ou empresa.
               </p>
             </div>
-            <div className="card bg-white shadow rounded-lg p-6">
+            <div className="card bg-white shadow rounded-lg p-6 hover:scale-105 transition-transform duration-300">
               <div className="icon mb-4 text-green-600">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -132,10 +131,23 @@ export default function Home() {
       <footer className="bg-green-600 text-white py-6">
         <div className="container mx-auto px-4 text-center">
           <p>&copy; 2023 Simulador de Energia Limpa. Todos os direitos reservados.</p>
-          <Link href="/admin/login" className="text-xs text-white hover:text-green-200 mt-2 inline-block">
+          <Link href="/admin/login" className="text-sm text-white hover:text-green-200 mt-4 inline-flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-4 h-4 mr-2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 2c-2.21 0-4 1.79-4 4v1h8v-1c0-2.21-1.79-4-4-4z"
+              />
+            </svg>
             Área Administrativa
           </Link>
-
         </div>
       </footer>
     </div >
