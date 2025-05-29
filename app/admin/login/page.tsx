@@ -43,10 +43,12 @@ export default function AdminLoginPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+
     if (!res.ok) {
       toast.error("Credenciais inválidas!");
       return;
     }
+
     toast.success("Login realizado!");
     router.push("/admin/leads");
   };
