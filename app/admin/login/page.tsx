@@ -3,7 +3,6 @@ export const dynamic = "force-dynamic";
 
 import { Suspense } from "react";
 
-
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,7 +26,6 @@ export default function AdminLoginPage() {
   const [toastShown, setToastShown] = useState(false);
 
   useEffect(() => {
-    // Para garantir que o toast aparece só uma vez mesmo com re-render.
     if (
       !toastShown &&
       searchParams.get("error") === "restricted"
@@ -96,6 +94,6 @@ export default function AdminLoginPage() {
         </Card>
       </div >
     </Suspense>
-    
+
   ); 
 }
