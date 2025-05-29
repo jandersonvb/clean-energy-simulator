@@ -96,5 +96,6 @@ export default function AdminLoginPage() {
         </Card>
       </div >
     </Suspense>
-  );
+    
+  ); 
 }
