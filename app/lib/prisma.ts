@@ -1,6 +1,7 @@
 // lib/prisma.ts
 import { PrismaClient } from "@prisma/client";
 
+// Faz o singleton do Prisma para ambientes serverless
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
 export const prisma =
